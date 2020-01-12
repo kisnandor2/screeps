@@ -11,7 +11,7 @@ function create(){
 	// Create harvesters
 	var harvesters = {
 		creeps : _.filter(Game.creeps, (creep) => 1 == 1),
-		maxNum : 5,
+		maxNum : 3,
 		name : 'Harvester',
 		mode : [WORK, CARRY, MOVE]
 	}
@@ -22,8 +22,13 @@ function create(){
 		// console.log(type.name + ": " + type.creeps.length + " exist out of " + type.maxNum)
 		if (type.creeps.length < type.maxNum){
 			let newName = type.name + Game.time
-			console.log('Spawning: ' + newName)
-			constants.spawns[0].spawnCreep(type.mode, newName, {memory: {role: 1}})
+			console.log("Trying to create " + type.name)
+			if (constants.spawns[0].spawnCreep(type.mode, newName, {memory: {role: 1}}) > 0){
+			    console.log('Spawning: ' + newName)    
+			}
+		}
+		else{
+		    console.log("No need to create " + type.name)
 		}
 	}
 }
