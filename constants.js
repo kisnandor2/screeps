@@ -11,4 +11,4 @@ module.exports = {
     spawnNames : spawnNames,
     spawns : spawns,
     roomNames: roomNames
-};
+}

@@ -2,22 +2,21 @@ const constants = require("constants")
 
 function create(){
 	for(var name in Memory.creeps) {
-        if(!Game.creeps[name]) {
-            delete Memory.creeps[name];
-        }
-    }
+		if(!Game.creeps[name]) {
+			delete Memory.creeps[name]
+		}
+	}
 
 	const toCreate = []
 	// Create harvesters
 	var harvesters = {
 		creeps : _.filter(Game.creeps, (creep) => 1 == 1),
-		maxNum : 3,
+		maxNum : 5,
 		name : 'Harvester',
 		mode : [WORK, CARRY, MOVE]
 	}
 	toCreate.push(harvesters)
-	// TODO: use this when more type of workers _.filter(Game.creeps, (creep) => 1 == 1)
-	// Create ...
+	// Create other types as well
 	for (const i in toCreate){
 		let type = toCreate[i]
 		// console.log(type.name + ": " + type.creeps.length + " exist out of " + type.maxNum)
@@ -29,4 +28,4 @@ function create(){
 	}
 }
 
-module.exports.create = create;
+module.exports.create = create
